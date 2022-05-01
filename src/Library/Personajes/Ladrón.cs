@@ -2,7 +2,7 @@ using System;
 
 namespace Roleplay
 {
-    public class Duende
+    public class Ladrón
     {
         public string Nombre { get; }
 
@@ -16,19 +16,22 @@ namespace Roleplay
 
         public int Defensa
         {
-            get => (Calzoncillo?.Defensa ?? 0)
+            get => (Chaleco?.Defensa ?? 0)
+                 + (Pantalón?.Defensa ?? 0)
                  + _defensaBase;
         }
 
         public Daga Daga { get; set; } = null;
 
-        public Calzoncillo Calzoncillo { get; set; } = null;
+        public Chaleco Chaleco { get; set; } = null;
+
+        public Pantalón Pantalón { get; set; } = null;
 
         private readonly int _defensaBase;
 
         private readonly int _ataqueBase;
 
-        public Duende(string nombre, int vida, int ataque, int defensa)
+        public Ladrón(string nombre, int vida, int ataque, int defensa)
         {
             Nombre = nombre;
             Vida = Math.Max(0, vida);

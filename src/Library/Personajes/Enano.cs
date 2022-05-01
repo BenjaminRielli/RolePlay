@@ -8,26 +8,51 @@ namespace Roleplay
 
         public int Vida { get; private set; }
 
-        public int Ataque { get; }
+        public int Ataque
+        {
+            get => (Hacha?.Ataque ?? 0)
+                 + (Daga?.Ataque ?? 0)
+                 + _ataqueBase;
+        }
 
-        public int Defensa { get; }
+        public int Defensa
+        {
+            get => (Pantalón?.Defensa ?? 0)
+                 + (Calzoncillo?.Defensa ?? 0)
+                 + (Chaleco?.Defensa ?? 0)
+                 + _defensaBase;
+        }
+
+        public Hacha Hacha { get; set; } = null;
+
+        public Daga Daga { get; set; } = null;
+
+        public Chaleco Chaleco { get; set; } = null;
+
+        public Pantalón Pantalón { get; set; } = null;
+
+        public Calzoncillo Calzoncillo { get; set; } = null;
+
+        private readonly int _defensaBase;
+
+        private readonly int _ataqueBase;
 
         public Enano(string nombre, int vida, int ataque, int defensa)
         {
-            this.Nombre = nombre;
-            this.Vida = vida;
-            this.Ataque = ataque;
-            this.Defensa = defensa;
+            Nombre = nombre;
+            Vida = Math.Max(0, vida);
+            _ataqueBase = Math.Max(0, ataque);
+            _defensaBase = Math.Max(0, defensa);
         }
 
         void Atacar(int ataque)
         {
             var ataqueNeto = Math.Max(0, ataque - Defensa);
 
-            Vida = Math.Max(0, Vida - ataqueNeto); 
+            Vida = Math.Max(0, Vida - ataqueNeto);
         }
 
-        void Curar(int vida) 
+        void Curar(int vida)
         {
             Vida += vida;
         }
