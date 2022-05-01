@@ -2,6 +2,13 @@ using System;
 
 namespace Roleplay
 {
+    /*
+    Para los personajes decidimos mantenerlo simple, cada personaje es asignado un valor de ataque y 
+    defensa cuando es creado y cada uno tiene la responsabilidad de curarse y atacarse a si mismo, 
+    para el ataque recibiendo el valor de ataque del personaje del cual lo recibe, y la curación 
+    llenando su vida según el valor recibido, esta decisión fue tomada para evitar tener que añadir nuevos 
+    métodos a cada clase cada vez que se añadiera un nuevo tipo de personajes.
+    */
     public class Mago
     {
         public string Nombre { get; }
