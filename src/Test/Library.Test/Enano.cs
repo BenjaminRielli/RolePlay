@@ -37,6 +37,23 @@ namespace Test.Library
             enano.Atacar(20);
 
             Assert.AreEqual(90, enano.Vida);
+
+            enano.Chaleco = new Chaleco();
+            enano.Pantalón = new Pantalón();
+
+            enano.Atacar(20);
+
+            Assert.AreEqual(86, enano.Vida);
+        }
+
+        [Test]
+        public void Curar()
+        {
+            var enano = new Enano("enano", 100, 5, 10);
+
+            enano.Curar(20);
+
+            Assert.AreEqual(120, enano.Vida);
         }
     }
 
