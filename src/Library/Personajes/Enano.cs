@@ -11,7 +11,6 @@ namespace Roleplay
         public int Ataque
         {
             get => (Hacha?.Ataque ?? 0)
-                 + (Daga?.Ataque ?? 0)
                  + _ataqueBase;
         }
 
@@ -24,8 +23,6 @@ namespace Roleplay
         }
 
         public Hacha Hacha { get; set; } = null;
-
-        public Daga Daga { get; set; } = null;
 
         public Chaleco Chaleco { get; set; } = null;
 
