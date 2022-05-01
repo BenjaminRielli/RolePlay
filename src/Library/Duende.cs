@@ -4,19 +4,32 @@ namespace Roleplay
 {
     public class Duende
     {
-        public Duende(string name, int life, int attack, int defensa){
-            this.Name = name;
-            this.Life = life;
-            this.Attack = attack;
+        public string Nombre { get; }
+
+        public int Vida { get; private set; }
+
+        public int Ataque { get; }
+
+        public int Defensa { get; }
+
+        public Duende(string nombre, int vida, int ataque, int defensa)
+        {
+            this.Nombre = nombre;
+            this.Vida = vida;
+            this.Ataque = ataque;
             this.Defensa = defensa;
         }
-        public string Name{ get; }
-        public int Life{ get; private set; }
-        public int Attack{ get; }
-        public int Defensa{ get; }
-        public void Curar(int n)
+
+        void Atacar(int ataque)
         {
-            this.Life = Life + n;
+            var ataqueNeto = Math.Max(0, ataque - Defensa);
+
+            Vida = Math.Max(0, Vida - ataqueNeto); 
+        }
+
+        void Curar(int vida) 
+        {
+            Vida += vida;
         }
     }
 }
