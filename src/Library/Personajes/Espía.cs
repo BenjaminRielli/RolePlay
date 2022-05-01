@@ -20,14 +20,14 @@ namespace Roleplay
             Defensa = Math.Max(0, defensa);
         }
 
-        void Atacar(int ataque)
+        public void Atacar(int ataque)
         {
             var ataqueNeto = Math.Max(0, ataque - Defensa);
 
             Vida = Math.Max(0, Vida - ataqueNeto);
         }
 
-        void Curar(int vida)
+        public void Curar(int vida)
         {
             Vida += vida;
         }
